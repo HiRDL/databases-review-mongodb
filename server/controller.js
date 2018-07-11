@@ -7,8 +7,8 @@ module.exports = {
     db.Todo.find({ 
       list_name: listName 
     }, (err, todos) => {
-      if (err) { console.log(err) };
-      res.status(200).send(todos);
+      if (err) { console.log(err) }
+      else {res.status(200).send(todos)};
     })
   },
   post: (req, res) => {
@@ -17,8 +17,8 @@ module.exports = {
       name: todo,
       list_name: listName
     }).save((err, newPost) => {
-      if (err) { console.log(err) };
-      res.status(201).send(newPost);
+      if (err) { console.log(err) }
+      else {res.status(201).send(newPost)};
     })
   },
   delete: (req, res) => {
@@ -26,7 +26,8 @@ module.exports = {
     db.Todo.remove({
       name: todo
     }, (err, deleted) => {
-      res.status(202).send('deleted');
+      if (err) {console.log(err)}
+      else {res.status(202).send('deleted')};
     })
   }
 }

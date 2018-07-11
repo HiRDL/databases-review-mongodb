@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+//open connection to the databse + name it
 mongoose.connect('mongodb://localhost:27017/todolist', { useNewUrlParser: true });
 
 // https://stackoverflow.com/questions/51156334/unhandled-rejection-mongoerror-port-must-be-specified
@@ -9,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/todolist', { useNewUrlParser: true }
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/todolist');
 
+//set db equal to the mongoose connection
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
